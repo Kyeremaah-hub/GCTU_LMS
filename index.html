@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/login_styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-wrapper">
+            <h1>Welcome to GCTU Library</h1>
+            <form action="../GCTU_LMS/php_back_up/login.php" method="POST">
+                <label for="studentID">Student ID</label>
+                <input type="text" id="studentID" name="studentID" placeholder="Enter your Student ID" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="/GCTU_LMS/other_sites/signup.html">Sign up here</a></p>
+        </div>
+    </div>
+</body>
+</html>

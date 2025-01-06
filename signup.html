@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="../css/signup_styles.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="form-wrapper">
+            <h1>Create an Account</h1>
+            <form action="other_sites/signup.php" method="POST">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+
+                <label for="middleName">Middle Name</label>
+                <input type="text" id="middleName" name="middleName" placeholder="Enter your middle name">
+
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+
+                <label for="index">Index</label>
+                <input type="text" id="index" name="index" placeholder="Enter your index number" required>
+
+                <label for="schoolEmail">School Email</label>
+                <input type="email" id="schoolEmail" name="schoolEmail" placeholder="Enter your school email" required>
+
+                <label for="tel">Telephone</label>
+                <input type="tel" id="tel" name="tel" placeholder="Enter your telephone number" required>
+
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Choose a password" required>
+
+                <label for="faculty">Faculty</label>
+                <input type="text" id="faculty" name="faculty" placeholder="Enter your faculty" required>
+
+                <label for="program">Program</label>
+                <input type="text" id="program" name="program" placeholder="Enter your program" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

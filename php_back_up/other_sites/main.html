@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to GCTU Library</title>
+    <link rel="stylesheet" href="../../css/main_styles.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+</head>
+<body>
+    <?php
+    session_start();
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    }
+    ?>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span>📚 GCTU Library</span>
+        </div>
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="navbar-links">
+            <li><a href="profile.php">My Profile</a></li>
+            <li><a href="search_books.php">Search Books</a></li>
+            <li><a href="borrow_books.php">Borrow Books</a></li>
+            <li><a href="return_books.php">Return Books</a></li>
+            <li><a href="reservations.php">Reservations</a></li>
+            <li><a href="fines.php">View Fines</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="dashboard">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <div class="user-info">
+                <img src="../../Images/Avatar.jpeg" alt="User Avatar" class="user-avatar">
+                <h1>Welcome <span id="user-name"><?php echo $_SESSION['studentID']; ?></span></h1>
+                <p>Your Role: <span id="user-role">Student</span></p>
+            </div>
+        </header>
+
+        <!-- Quick Actions Section -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <ul>
+                <li><a href="borrow_books.php">Borrow Books</a></li>
+                <li><a href="return_books.php">Return Books</a></li>
+                <li><a href="search_books.php">Search Books</a></li>
+            </ul>
+        </section>
+
+        <!-- Search Bar for Books -->
+        <section class="book-search">
+            <h2>Search Available Books</h2>
+            <form action="search_books.php" method="GET">
+                <input type="text" id="search" name="search" placeholder="Search by Title, Genre, or Author..." required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <!-- Available Books Section -->
+        <section class="books-section">
+            <h2>Available Books</h2>
+            <div class="book-list">
+                <!-- Dynamically populated book list from the database -->
+                <div class="book-item">
+                    <h3>Book Title 1</h3>
+                    <p>Author: Author Name</p>
+                    <p>Genre: Fiction</p>
+                    <p>Available: 5</p>
+                    <button>Borrow</button>
+                </div>
+                <div class="book-item">
+                    <h3>Book Title 2</h3>
+                    <p>Author: Author Name</p>
+                    <p>Genre: Non-Fiction</p>
+                    <p>Available: 3</p>
+                    <button>Borrow</button>
+                </div>
+                <div class="book-item">
+                    <h3>Book Title 3</h3>
+                    <p>Author: Author Name</p>
+                    <p>Genre: Science</p>
+                    <p>Available: 7</p>
+                    <button>Borrow</button>
+                </div>
+                <!-- Additional books dynamically generated -->
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 GCTU Library. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://site.gctu.edu.gh" target="_blank"><i class="fas fa-globe"></i></a>
+                <a href="https://wa.me/0000000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com/GCTU" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://t.me/GCTU" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://twitter.com/GCTU" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript function to toggle the navbar menu
+        function toggleMenu() {
+            const links = document.querySelector('.navbar-links');
+            links.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
